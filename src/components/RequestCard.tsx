@@ -1,4 +1,3 @@
-import React from "react";
 import approveIcon from "../assets/svgs/approve.svg";
 import assignIcon from "../assets/svgs/assign.svg";
 import rejectIcon from "../assets/svgs/reject.svg";

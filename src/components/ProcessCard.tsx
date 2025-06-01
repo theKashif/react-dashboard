@@ -1,4 +1,3 @@
-import React from "react";
 import checkIcon from "../assets/svgs/check.svg";
 import documentIcon from "../assets/svgs/dashboard.svg";
 import ProcessStatusCard from "./ProcessStatusCard";

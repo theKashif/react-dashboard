@@ -2,7 +2,6 @@ import { useRoutes, Navigate } from 'react-router-dom';
 import { useAuth } from './context/AuthContext';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
-import NotFound from './pages/NotFound';
 
 function App() {
   const { isAuthenticated } = useAuth();
@@ -18,7 +17,7 @@ function App() {
     },
     {
       path: '*',
-      element: <NotFound />,
+      element: isAuthenticated ? <Dashboard /> : <Navigate to="/login" />,
     },
   ];
 

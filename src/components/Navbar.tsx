@@ -1,4 +1,3 @@
-import React from "react";
 import toggleInsideIcon from "../assets/svgs/toggleInside.svg";
 import arrowDownIcon from "../assets/svgs/arrow-down.svg";
 import notificationBellIcon from "../assets/svgs/notification-bell.svg";

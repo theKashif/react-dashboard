@@ -1,4 +1,3 @@
-import React from "react";
 import SearchBar from "./SearchBar";
 import dotsIcon from "../assets/svgs/verticalDots.svg";
 import leftArrowIcons from "../assets/svgs/arrow-left.svg";
@@ -134,9 +133,6 @@ const HistoryCard = () => {
                   />
                 </td>
 
-              </tr>
-              <tr>
-                <td colspan="6" className="py-20"></td>
               </tr>
             </tbody>
           </table>

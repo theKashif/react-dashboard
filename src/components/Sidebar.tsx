@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import logoSrc from "../../src/assets/images/logo.png";
 import homeSvg from "../../src/assets/svgs/home.svg";
 import dashboardSvg from "../../src/assets/svgs/dashboard.svg";

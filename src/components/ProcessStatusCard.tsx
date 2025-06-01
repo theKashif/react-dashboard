@@ -27,14 +27,7 @@ const ProcessStatusCard: React.FC<props> = ({
       {inProgress && (
         <div className="flex items-center justify-between mb-1">
           <div className="w-full max-w-[180px] h-2 rounded-full bg-[#D9D9D9] mr-3 overflow-hidden">
-            <div
-              className="h-2 rounded-full bg-primary w-[65%]"
-              aria-label="Progress bar at 65%"
-              role="progressbar"
-              aria-valuenow="65"
-              aria-valuemin="0"
-              aria-valuemax="100"
-            ></div>
+            <div className="h-2 rounded-full bg-primary w-[65%]"></div>
           </div>
           <span className="text-primary text-sm font-semibold select-none">
             65%
@@ -56,7 +49,7 @@ const ProcessStatusCard: React.FC<props> = ({
         </div>
         <div className="flex items-center space-x-1 text-[10px] font-normal">
           <img src={clockIcon} />
-          <time datetime="2025-03-12T11:00">12 Mar 2025, 11:00 am</time>
+          <time>12 Mar 2025, 11:00 am</time>
         </div>
       </div>
     </div>
