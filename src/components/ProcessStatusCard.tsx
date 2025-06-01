@@ -56,4 +56,4 @@ const ProcessStatusCard: React.FC<props> = ({
   );
 };
 
-export default ProcessStatusCard;
+export default React.memo(ProcessStatusCard);

@@ -1,4 +1,3 @@
-import { useState } from "react";
 import logoSrc from "../../src/assets/images/logo.png";
 import homeSvg from "../../src/assets/svgs/home.svg";
 import dashboardSvg from "../../src/assets/svgs/dashboard.svg";
@@ -12,16 +11,15 @@ import patternNav from "../../src/assets/images/pattern-nav.png";
 import SidebarIcon from "../components/svg/Sidebar";
 import NavItem from "../components/NavItem";
 
-const Sidebar = () => {
-  const [toggleSideBar, setToggleSideBar] = useState(false);
+interface SidebarProps {
+  handleToggle: () => void;
+  toggleSideBar: boolean;
+}
 
-  const handleToggle = () => {
-    setToggleSideBar(!toggleSideBar);
-  };
-
+const Sidebar: React.FC<SidebarProps> = ({ handleToggle, toggleSideBar }) => {
   return (
     <>
-      {toggleSideBar ? (
+      {toggleSideBar && (
         <aside className="flex flex-col justify-between bg-primary text-white w-64 min-h-screen rounded-tr-2xl rounded-br-2xl transition-all duration-300">
           <div>
             <div className="flex items-center justify-between m-4">
@@ -67,15 +65,6 @@ const Sidebar = () => {
             />
           </div>
         </aside>
-      ) : (
-        <div className="pt-2 pl-2">
-          <button
-            onClick={handleToggle}
-            className="text-white bg-primary p-2 rounded-full shadow-md"
-          >
-            <SidebarIcon />
-          </button>
-        </div>
       )}
     </>
   );

@@ -2,6 +2,7 @@ import SearchBar from "./SearchBar";
 import dotsIcon from "../assets/svgs/verticalDots.svg";
 import leftArrowIcons from "../assets/svgs/arrow-left.svg";
 import rightArrowIcons from "../assets/svgs/arrow-right.svg";
+import React from "react";
 
 const HistoryCard = () => {
   return (
@@ -244,4 +245,4 @@ const HistoryCard = () => {
   );
 };
 
-export default HistoryCard;
+export default React.memo(HistoryCard);

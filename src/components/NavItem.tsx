@@ -29,4 +29,4 @@ const NavItem: React.FC<NavItemProps> = ({ src, name, count, isActive, isSetting
   );
 };
 
-export default NavItem;
+export default React.memo(NavItem);

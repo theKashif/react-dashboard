@@ -1,17 +1,32 @@
+import React from "react";
 import toggleInsideIcon from "../assets/svgs/toggleInside.svg";
 import arrowDownIcon from "../assets/svgs/arrow-down.svg";
 import notificationBellIcon from "../assets/svgs/notification-bell.svg";
 import ellipseIcon from "../assets/svgs/ellipse.svg";
 import userIcon from "../assets/images/person.png";
+import SidebarIcon from "../components/svg/Sidebar";
 import SearchBar from "./SearchBar";
 import { useAuth } from "../context/AuthContext";
 
-const Navbar = () => {
+interface Props {
+  handleToggle: () => void;
+  toggleSideBar: boolean;
+}
+
+const Navbar: React.FC<Props> = ({ handleToggle, toggleSideBar }) => {
   const { user } = useAuth();
-  console.log("🚀 ~ Navbar ~ user:", user)
+
   return (
     <header className="flex flex-col sm:flex-row sm:items-center sm:justify-between bg-white px-4 py-4 sm:px-6 sm:py-4 rounded-b-2xl w-full gap-4 shadow-lg/2">
-      <nav className="flex items-center space-x-1 text-xs text-gray-400 select-none overflow-x-auto scrollbar-hide whitespace-nowrap">
+      <nav className="flex items-center space-x-2 text-xs text-gray-400 select-none overflow-x-auto scrollbar-hide whitespace-nowrap">
+        {!toggleSideBar && (
+          <button
+            onClick={handleToggle}
+            className="text-white bg-primary/30 p-1 rounded-full"
+          >
+            <SidebarIcon />
+          </button>
+        )}
         <a
           className="underline font-normal text-[10px] text-[#8D8C8E]"
           href="#"
@@ -22,10 +37,11 @@ const Navbar = () => {
         <span className="font-bold text-darkGrey text-[10px]">
           Registration
         </span>
+        <div className="flex-grow min-w-[150px] max-w-full sm:max-w-xs">
+          <SearchBar />
+        </div>
       </nav>
-      <div className="flex flex-1 min-w-0 items-center space-x-4 justify-between">
-        <SearchBar />
-
+      <div className="flex flex-1 min-w-0 items-center space-x-4 justify-end">
         <div className="flex items-center space-x-4 sm:space-x-6 flex-shrink-0">
           <label className="inline-flex items-center cursor-pointer">
             <input type="checkbox" value="" className="sr-only peer" checked />
@@ -70,7 +86,7 @@ const Navbar = () => {
               src={user?.image || userIcon}
               width="32"
             />
-            <span className="text-[#59595B] font-semibold text-sm select-none hidden sm:block">
+            <span className="text-[#59595B] font-semibold text-sm select-none">
               {user?.username || "John Doe"}
             </span>
             <img src={arrowDownIcon} />
@@ -81,4 +97,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default React.memo(Navbar);

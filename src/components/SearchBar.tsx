@@ -1,3 +1,4 @@
+import React from "react";
 import searchIcon from "../assets/svgs/search.svg";
 
 
@@ -5,7 +6,7 @@ const SearchBar = () => {
   return (
     <form
       aria-label="Search requests"
-      className="flex items-center bg-skyBlue rounded-2xl px-4 py-2 h-[42px] w-full max-w-[272px] sm:max-w-xs flex-shrink"
+      className="flex items-center bg-skyBlue rounded-2xl px-4 py-2 h-[42px] w-full flex-shrink"
       role="search"
     >
       <img src={searchIcon} />
@@ -19,4 +20,4 @@ const SearchBar = () => {
   );
 };
 
-export default SearchBar;
+export default React.memo(SearchBar);
