@@ -21,7 +21,7 @@ const Login = () => {
 
     try {
       await login(userName, password);
-      navigate("/"); // redirect to home/dashboard after login
+      navigate("/");
     } catch (err: any) {
       setError(err.message || "Failed to login");
     }
@@ -29,23 +29,24 @@ const Login = () => {
 
   return (
     <div className="w-full bg-[#f8fafb] flex flex-col md:flex-row overflow-hidden shadow-lg min-h-screen">
-      {/* Left side */}
-      <div className="flex flex-col justify-center items-center p-10 md:p-16 bg-offWhite w-full md:w-1/2">
+      <div className="flex flex-col justify-center items-center p-4 sm:p-6 md:p-10 lg:p-16 bg-offWhite w-full md:w-1/2 relative">
         <button
           aria-label="Switch to Arabic language"
           type="button"
-          className="absolute w-[118px] h-[40px] top-6 left-6 flex items-center justify-center gap-2 px-3 py-2 rounded-md bg-white border border-skyGrey shadow-lg/2"
+          className="absolute w-[118px] h-[40px] top-4 left-4 sm:top-6 sm:left-6 flex items-center justify-center gap-2 px-3 py-2 rounded-md bg-white border border-skyGrey shadow-lg/2 z-10"
         >
           <ArabicIcon width={43} height={30} />
           <TranslationIcon size={24} />
         </button>
+
         <form
-          className="bg-white rounded-xl p-8 w-full max-w-md items-center shadow-lg/5 border border-skyBlue"
+          className="bg-white rounded-xl p-6 sm:p-8 w-full max-w-sm sm:max-w-md items-center shadow-lg/5 border border-skyBlue mt-12 sm:mt-0"
           onSubmit={handleSubmit}
         >
-          <h2 className="text-center text-[28px] font-semibold mb-8 text-[#222222]">
+          <h2 className="text-center text-2xl sm:text-[28px] font-semibold mb-6 sm:mb-8 text-[#222222]">
             Login
           </h2>
+
           <label
             className="block text-xs text-darkGrey font-normal mb-2"
             htmlFor="email"
@@ -56,18 +57,19 @@ const Login = () => {
             id="email"
             type="text"
             placeholder="Enter E-mail"
-            className="w-full rounded-lg border border-skyGrey bg-[#f8fafb] text-xs text-[#222222] placeholder:text-[#aab0b8] px-4 py-3 mb-6 focus:outline-none focus:ring-2 focus:ring-[#aab0b8]"
+            className="w-full rounded-lg border border-skyGrey bg-[#f8fafb] text-xs text-[#222222] placeholder:text-[#aab0b8] px-4 py-3 mb-4 sm:mb-6 focus:outline-none focus:ring-2 focus:ring-[#aab0b8]"
             value={userName}
             onChange={(e) => setUserName(e.target.value)}
             required
           />
+
           <label
             className="block text-xs text-darkGrey font-normal mb-2"
             htmlFor="password"
           >
             Password*
           </label>
-          <div className="relative">
+          <div className="relative mb-4">
             <input
               id="password"
               type="password"
@@ -81,8 +83,10 @@ const Login = () => {
               <EyeIcon size={18} />
             </div>
           </div>
+
           {error && <div className="text-red-500 text-sm mb-4">{error}</div>}
-          <div className="flex justify-between items-center mt-6 mb-8 text-xs">
+
+          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mt-4 sm:mt-6 mb-6 sm:mb-8 text-xs gap-4 sm:gap-0">
             <label className="flex items-center gap-2 cursor-pointer select-none text-darkGrey">
               Remember me
               <div className="inline-flex items-center">
@@ -99,12 +103,12 @@ const Login = () => {
                       viewBox="0 0 20 20"
                       fill="currentColor"
                       stroke="currentColor"
-                      stroke-width="1"
+                      strokeWidth="1"
                     >
                       <path
-                        fill-rule="evenodd"
+                        fillRule="evenodd"
                         d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                        clip-rule="evenodd"
+                        clipRule="evenodd"
                       ></path>
                     </svg>
                   </span>
@@ -112,10 +116,14 @@ const Login = () => {
               </div>
             </label>
 
-            <a href="#" className="hover:underline text-primary">
+            <a
+              href="#"
+              className="hover:underline text-primary text-center sm:text-left"
+            >
               Forgot your password?
             </a>
           </div>
+
           <button
             type="submit"
             className="w-full bg-[#dfdfdf] text-[#8D8C8E] font-bold rounded-md py-3 cursor-pointer"
@@ -123,7 +131,8 @@ const Login = () => {
             Login
           </button>
         </form>
-        <p className="mt-6 text-center text-xs text-primary">
+
+        <p className="mt-4 sm:mt-6 text-center text-xs text-primary px-4">
           <a href="#" className="text-primary font-semibold hover:underline">
             Create an account?
           </a>
@@ -134,7 +143,6 @@ const Login = () => {
         </p>
       </div>
 
-      {/* Right side */}
       <div className="hidden md:flex flex-col justify-around w-full md:w-1/2 relative overflow-hidden">
         <img
           src={imgSrc}
@@ -142,7 +150,7 @@ const Login = () => {
           className="w-[95%] h-[95%] object-cover rounded-xl align-center justify-center"
           loading="lazy"
         />
-        
+
         <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-center text-white font-semibold w-2/3 z-20">
           <div className="flex items-center justify-center gap-2 text-3xl mb-2">
             <img
@@ -156,7 +164,6 @@ const Login = () => {
           </p>
         </div>
 
-          {/* Gradient Overlay */}
         <div className="absolute bottom-4 left-0 w-[95%] h-[95%] bg-gradient-to-t from-primary via-primary/20 to-transparent pointer-events-none rounded-xl z-10 align-center justify-center" />
       </div>
     </div>
